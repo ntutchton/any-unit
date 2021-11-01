@@ -1,16 +1,9 @@
-import { Unit, Systems, Measurement } from '../../types/units'
+import { Unit, MeasurementSystem, MeasurementSystemName } from '../../types/units'
 import { Big } from 'big.js'
 
-// YARDS are the base unit used by all US/Imperial length measurements
-enum UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS {
-  INTERNATIONAL = 'INTERNATIONAL',
-  MARITIME = 'MARITIME',
-  SURVEY = 'SURVEY',
-}
-
+//International Units
 export const point: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.INTERNATIONAL ],
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
   singular: 'point',
   plural: 'points',
   abbreviation: 'p',
@@ -18,8 +11,7 @@ export const point: Unit = {
 }
 
 export const pica: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.INTERNATIONAL ],
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
   singular: 'pica',
   plural: 'picas',
   abbreviation: 'P',
@@ -27,30 +19,15 @@ export const pica: Unit = {
 }
 
 export const inch: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.INTERNATIONAL ],
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
   singular: 'inch',
   plural: 'inches',
   abbreviation: 'in',
   factor: new Big(1/36),
 };
 
-export const link: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.SURVEY ],
-  singular: 'link',
-  plural: 'links',
-  abbreviation: 'lnk',
-  factor: new Big(11/50),
-};
-
 export const foot: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [
-    UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.INTERNATIONAL,
-    UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.SURVEY,
-    UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.MARITIME
-  ],
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
   singular: 'foot',
   plural: 'feet',
   abbreviation: 'ft',
@@ -58,30 +35,32 @@ export const foot: Unit = {
 };
 
 export const yard: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [
-    UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.INTERNATIONAL,
-    UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.SURVEY,
-    UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.MARITIME
-  ],
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
   singular: 'yard',
   plural: 'yards',
   abbreviation: 'yd',
   factor: new Big(1),
 };
 
-export const fathom: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.MARITIME ],
-  singular: 'fathom',
-  plural: 'fathoms',
-  abbreviation: 'ftm',
-  factor: new Big(2),
+export const mile: Unit = {
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
+  singular: 'mile',
+  plural: 'miles',
+  abbreviation: 'mi',
+  factor: new Big(1760),
+};
+
+//Survey Units
+export const link: Unit = {
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
+  singular: 'link',
+  plural: 'links',
+  abbreviation: 'lnk',
+  factor: new Big(11/50),
 };
 
 export const rod: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.SURVEY ],
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
   singular: 'rod',
   plural: 'rods',
   abbreviation: 'rd',
@@ -89,8 +68,7 @@ export const rod: Unit = {
 };
 
 export const chain: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.SURVEY ],
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
   singular: 'chain',
   plural: 'chains',
   abbreviation: 'ch',
@@ -98,82 +76,73 @@ export const chain: Unit = {
 };
 
 export const furlong: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.SURVEY ],
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
   singular: 'furlong',
   plural: 'furlongs',
   abbreviation: 'fur',
   factor: new Big(220),
 }
 
-export const cable: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.MARITIME ],
-  singular: 'cable',
-  plural: 'cables',
-  abbreviation: 'cb',
-  factor: new Big(240),
-} 
-
-export const mile: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [
-    UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.INTERNATIONAL,
-    UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.SURVEY
-  ],
-  singular: 'mile',
-  plural: 'miles',
-  abbreviation: 'mi',
-  factor: new Big(1760),
-};
-
-export const nauticalMile: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.MARITIME ],
-  singular: 'nautical mile',
-  plural: 'nautical miles',
-  abbreviation: 'nmi',
-  factor: new Big(1852/0.9144),
-};
-
 export const league: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.SURVEY ],
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
   singular: 'league',
   plural: 'leagues',
   abbreviation: 'lea',
   factor: new Big(5280),
 };
 
+// Maritime Units
+export const fathom: Unit = {
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
+  singular: 'fathom',
+  plural: 'fathoms',
+  abbreviation: 'ftm',
+  factor: new Big(2),
+};
+
+export const cable: Unit = {
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
+  singular: 'cable',
+  plural: 'cables',
+  abbreviation: 'cb',
+  factor: new Big(240),
+} 
+
+export const nauticalMile: Unit = { //international
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
+  singular: 'nautical mile',
+  plural: 'nautical miles',
+  abbreviation: 'nmi',
+  factor: new Big(1852/0.9144),
+};
+
 export const nauticalLeague: Unit = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  type: [ UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS.MARITIME ],
+  system: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
   singular: 'nautical league',
   plural: 'nautical leagues',
   abbreviation: 'nl',
   factor: new Big(5556/0.9144),
 }
 
-const UNITED_STATES_CUSTOMARY_LENGTH: Measurement = {
-  system: Systems.UNITED_STATES_CUSTOMARY,
-  measurements: Object.keys(UNITED_STATES_CUSTOMARY_LENGTH_MEASUREMENTS),
+export const UNITED_STATES_CUSTOMARY_LENGTH: MeasurementSystem = {
+  name: MeasurementSystemName.UNITED_STATES_CUSTOMARY,
   base: yard,
   units: [
-    point,
-    pica,
+    /* point,
+    pica, */
     inch,
-    link,
     foot,
     yard,
-    fathom,
+    mile,
+    /* link,
     rod,
     chain, 
     furlong,
-    cable,
-    mile,
-    nauticalMile,
     league,
-    nauticalLeague,
+    fathom,
+    cable,
+    nauticalMile,
+    nauticalLeague, */
   ]
 }
 
