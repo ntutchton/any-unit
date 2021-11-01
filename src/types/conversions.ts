@@ -27,7 +27,7 @@ export class BaseConverter implements Converter {
     else if (from.system !== to.system) { //different system, include base conversion ratio in factor
       const conversion = this.conversions.find(conversion => (from.system === conversion.input.name && to.system === conversion.output.name))
       if (conversion){
-        return new Big(from.factor.div(conversion.ratio)).div(to.factor)
+        return new Big((from.factor.div(conversion.ratio)).div(to.factor))
       } 
     }
     Logger.log(`Unable to determine conversion factor between ${from.plural} and ${to.plural}.`, 'ERROR')

@@ -8,12 +8,12 @@ export class LengthConverter extends BaseConverter {
     { 
       input: UNITED_STATES_CUSTOMARY_LENGTH,
       output: METRIC_LENGTH,
-      ratio: new Big(0.9144)
+      ratio: new Big(1/0.9144)
     },
     {
       input: METRIC_LENGTH,
       output: UNITED_STATES_CUSTOMARY_LENGTH,
-      ratio: new Big(1/0.9144)
+      ratio: new Big(0.9144)
     }
   ]
 }
